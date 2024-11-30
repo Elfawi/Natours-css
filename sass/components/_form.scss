@@ -18,6 +18,9 @@
     width: 90%;
     display: block;
     transition: all 0.3s ease-out;
+    @include respond(medium-desktop) {
+      width: 85%;
+    }
     @include respond(phone) {
       width: 100%;
     }
