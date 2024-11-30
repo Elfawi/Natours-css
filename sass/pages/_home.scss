@@ -63,7 +63,7 @@
       rgba($color-white, 0.9) 50%,
       transparent 50%
     ),
-    url(../../img/nat-10.jpg);
+    url(../img/nat-10.jpg);
   background-size: cover; // same as cover
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
@@ -75,7 +75,7 @@
         rgba($color-white, 0.9) 65%,
         transparent 65%
       ),
-      url(../../img/nat-10.jpg);
+      url(../img/nat-10.jpg);
   }
   @include respond(tab-port) {
     background-repeat: no-repeat;
@@ -87,7 +87,7 @@
         rgba($color-white, 0.9) 70%,
         transparent 70%
       ),
-      url(../../img/nat-10.jpg);
+      url(../img/nat-10.jpg);
   }
   @include respond(phone) {
     background-image: linear-gradient(
@@ -95,7 +95,7 @@
         rgba($color-white, 1) 0%,
         rgba($color-white, 1) 100%
       ),
-      url(../../img/nat-10.jpg);
+      url(../img/nat-10.jpg);
     background-size: 100%; // same as cover
   }
   @include respond(big-desktop) {
@@ -105,7 +105,7 @@
         rgba($color-white, 0.9) 55%,
         transparent 55%
       ),
-      url(../../img/nat-10.jpg);
+      url(../img/nat-10.jpg);
     background-size: 100%; // same as cover
   }
   &__form {
