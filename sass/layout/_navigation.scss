@@ -1,0 +1,199 @@
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    right: 6rem;
+    top: 6rem;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    cursor: pointer;
+    text-align: center;
+    @include respond(tab-port) {
+      right: 4rem;
+      top: 4rem;
+    }
+    @include respond(phone) {
+      right: 3rem;
+      top: 3rem;
+    }
+  }
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    // width: 150%;
+    border-radius: 50%;
+    position: fixed;
+    right: 6.5rem;
+    top: 6.5rem;
+    background: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 1000;
+    // transform: scale(100);
+    transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+    @include respond(tab-port) {
+      right: 4.5rem;
+      top: 4.5rem;
+    }
+    @include respond(phone) {
+      right: 3.5rem;
+      top: 3.5rem;
+    }
+  }
+  &__nav {
+    height: 100vh;
+    // width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1500;
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    @include absCenter;
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    @include respond(phone) {
+      top: 50%;
+    }
+  }
+  &__item {
+    position: relative;
+    // overflow: hidden;
+    &:not(:last-child) {
+      padding-bottom: 1rem;
+      @include respond(phone) {
+        padding-bottom: 2rem;
+      }
+    }
+    // &::after {
+    //   content: "";
+    //   background-color: white;
+    //   position: absolute;
+    //   width: 140%;
+    //   height: 100%;
+    //   transition: all 0.4s;
+    //   left: 100%;
+    //   opacity: 0;
+    //   transform: translateX(1rem);
+    //   z-index: -1;
+    //   clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    // }
+    // &:hover::after {
+    //   left: -30%;
+    //   opacity: 1;
+    // }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      font-size: 3rem;
+      color: $color-white;
+      padding: 1rem 2rem;
+      font-weight: 300;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 230%;
+      background-position: 0%;
+      transition: all 0.4s;
+      @include respond(phone) {
+        font-size: 2.3rem;
+      }
+      & span {
+        margin-right: 1rem;
+        display: inline-block;
+      }
+      &:hover,
+      &:active {
+        background-position: 100%;
+        color: $color-primary;
+        transform: translateX(1rem);
+      }
+    }
+  }
+
+  /////// Functionality
+  // &__checkbox:checked ~ &__background {
+  //   transform: scale(100);
+  // }
+  // &__checkbox:checked ~ &__nav {
+  //   opacity: 1;
+  //   width: 100%;
+  //   visibility: visible;
+  // }
+
+  /////// ICON
+  &__icon {
+    position: relative;
+    top: 50%;
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      display: inline-block;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      transition: all 0.3s;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 0.3s;
+    }
+    &::before {
+      top: -0.8rem;
+    }
+    &::after {
+      top: 0.8rem;
+    }
+  }
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+  &__checkbox:checked + &__button &__icon::before {
+    transform: rotate(135deg);
+    top: 0;
+    background-color: $color-primary-dark;
+    // width: 5rem;
+  }
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+    background-color: $color-primary-dark;
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+}
+
+.showNav .navigation__background {
+  transform: scale(100);
+}
+.showNav .navigation__nav {
+  opacity: 1;
+  width: 100%;
+  visibility: visible;
+}

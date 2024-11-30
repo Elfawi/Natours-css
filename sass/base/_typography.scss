@@ -1,0 +1,111 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  text-transform: uppercase;
+  color: $color-white;
+  margin-bottom: 5rem;
+  /* backface-visibility: hidden; */
+  @include respond(phone) {
+    margin-bottom: 6rem;
+  }
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: fade-left 1s ease-out;
+    @include respond(tab-land) {
+      font-size: 5rem;
+      letter-spacing: 2.5rem;
+    }
+    @include respond(tab-port) {
+      font-size: 4rem;
+      letter-spacing: 2rem;
+    }
+    @include respond(phone) {
+      font-size: 3.5rem;
+      letter-spacing: 1rem;
+    }
+    @include respond(big-desktop) {
+      font-size: 8rem;
+      letter-spacing: 4rem;
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: fade-right 1s ease-out;
+    @include respond(phone) {
+      font-size: 1.8rem;
+      letter-spacing: 0.5rem;
+    }
+    @include respond(big-desktop) {
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    $color-primary-light,
+    $color-primary-dark
+  );
+  display: inline-block;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+  transition: all 0.2s;
+  @include respond(medium-desktop) {
+    font-size: 3rem;
+  }
+  @include respond(tab-port) {
+    font-size: 2.8rem;
+  }
+  @include respond(phone) {
+    font-size: 2rem;
+  }
+  @include respond(big-desktop) {
+    font-size: 4rem;
+  }
+
+  &:hover {
+    transform: skew(15deg, 2deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.2);
+  }
+}
+
+.heading-tertiary {
+  font-size: $default-font-size;
+  font-weight: 700;
+  text-transform: uppercase;
+  @include respond(phone) {
+    font-size: 1.4rem;
+  }
+  @include respond(big-desktop) {
+    font-size: 2rem;
+  }
+  @include respond(medium-desktop) {
+    font-size: 1.8rem;
+  }
+  @include respond(small-desktop) {
+    font-size: 1.4rem;
+  }
+}
+.paragraph {
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

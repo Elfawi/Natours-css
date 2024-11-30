@@ -1,0 +1,85 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// @mixin boxShadow($perc) {
+//   box-shadow: 0 2rem 4rem rgba($color-black, $perc);
+// }
+
+////////////////// MEDIA QUIRES MANAGER
+///
+/// /*
+/// 0- 600px phones
+/// 600- 900px tablet portrait
+/// 900- 1200px tablet landscape
+/// [1200 -1800] is where our normal styles apply
+/// 1800 + big desktop
+
+/// */
+
+// @mixin respond-phone() {
+//   @media (max-width: 600px) {
+//     @content;
+//   }
+// }
+/*
+$breakpoint arguement choices:
+- phone
+- tab-port
+- tab-lands
+- big-desktop
+*/
+
+/*
+min-width => minmium width => greater than that condition will happen
+max-width => maximum width => lesser than that condition will happen
+
+*/
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    // 600px
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-port) {
+    // 900px
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-land) {
+    // 1200px
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == small-desktop) {
+    // 1400px
+    @media only screen and (max-width: 87.5em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == medium-desktop) {
+    // 1800px
+    @media only screen and (max-width: 112.5em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == big-desktop) {
+    // 1800px
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
